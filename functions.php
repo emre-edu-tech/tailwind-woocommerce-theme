@@ -51,25 +51,51 @@ remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_l
 add_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
 if(!function_exists('woocommerce_template_loop_product_thumbnail')) {
 	function woocommerce_template_loop_product_thumbnail() {
-		global $post;
 		// echo out the html for the custom thumbnail image
-		$output = has_post_thumbnail() ? get_the_post_thumbnail($post->ID, 'post-thumbnail', [
+		$output = has_post_thumbnail() ? get_the_post_thumbnail(get_the_ID(), 'post-thumbnail', [
 			'class' => 'shadow-md',
-			'alt' => $post->post_title,
+			'alt' => get_the_title(),
+			'title' => get_the_title(),
 		]) : 'Product Placeholder image will be echoed';
 		echo $output;
 	}
 }
+// Change the place of closing link on product loop
+remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_product_link_close', 5);
+add_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_link_close', 11);
+
+// Put custom HTML before Product Title
+add_action('woocommerce_shop_loop_item_title', 'add_custom_start_html_before_shop_loop_title', 5);
+function add_custom_start_html_before_shop_loop_title() {
+	$output = '<div class="product-info-container flex flex-col items-center p-2">';
+	echo $output;
+}
+add_action('woocommerce_after_shop_loop_item', 'add_custom_end_html_before_shop_loop_title', 11);
+function add_custom_end_html_before_shop_loop_title() {
+	$output = '</div>';
+	echo $output;
+}
+
 // Put custom html before shop loop to style the result count and catalog ordering
 add_action('woocommerce_before_shop_loop', 'add_custom_start_html_before_shop_loop', 11);
 function add_custom_start_html_before_shop_loop() {
 	$output = '<div class="shop-info-container flex justify-between items-center py-3">';
 	echo $output;
 }
-
+// Put custom html just after the result count and catalog ordering
 add_action('woocommerce_before_shop_loop', 'add_custom_end_html_before_shop_loop', 31);
 function add_custom_end_html_before_shop_loop() {
 	$output = '</div>';
+	echo $output;
+}
+
+// Customize the shop loop item TITLE
+// First remove the default action
+remove_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
+// Now create custom action and rebuild it
+add_action('woocommerce_shop_loop_item_title', 'woocommerce_template_loop_product_title', 10);
+function woocommerce_template_loop_product_title() {
+	$output = '<h3 class="' . apply_filters('woocommerce_product_loop_title_classes', 'woocommerce-loop-product__title text-center py-2 text-lg text-primary hover:text-slate-600') . '"><a href="' . get_permalink() . '">' . get_the_title() . '</a></h3>';
 	echo $output;
 }
 

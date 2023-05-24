@@ -9,6 +9,7 @@
 body {
     @apply font-body;
 }
+
 /* Woocommerce Styles applied Twilwindcss */
 .page-title {
     @apply text-5xl py-3;
