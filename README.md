@@ -1,0 +1,1 @@
+Custom woocommerce theme using Tailwind for learning purposes.
