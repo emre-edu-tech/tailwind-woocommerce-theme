@@ -1,1 +1,1 @@
-Custom woocommerce theme using Tailwind for learning purposes.
+This repository is to hold a custom Theme for Woocommerce learning purposes.
