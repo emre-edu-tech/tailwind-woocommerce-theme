@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","mappings":";;;;AAAAA,OAAO,CAACC,GAAG,CAAC,uCAAuC,CAAC,C","sources":["webpack://mediapons-tw-woocommerce-theme/./src/index.js"],"sourcesContent":["console.log('Index.js file loaded using wp-scripts');"],"names":["console","log"],"sourceRoot":""}

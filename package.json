@@ -1,0 +1,20 @@
+{
+  "name": "mediapons-tw-woocommerce-theme",
+  "version": "1.0.0",
+  "description": "This repository is to hold a custom Theme for Woocommerce learning purposes.",
+  "main": "index.js",
+  "scripts": {
+    "wpbuild": "wp-scripts build",
+    "wpstart": "wp-scripts start",
+    "tailwindbuild": "tailwindcss -i ./src/css/index.css -o ./build/css/index.css --minify",
+    "tailwindwatch": "tailwindcss -i ./src/css/index.css -o ./build/css/index.css --watch --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Media Pons",
+  "license": "ISC",
+  "dependencies": {
+    "@wordpress/scripts": "^30.9.0",
+    "tailwindcss": "^3.4.17"
+  }
+}

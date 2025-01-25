@@ -1,0 +1,1 @@
+console.log('Index.js file loaded using wp-scripts');
