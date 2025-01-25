@@ -1,11 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main Template</title>
-</head>
-<body>
-    Hello from main template!
-</body>
-</html>
+<?php get_header(); ?>
+    <h1 class="text-xl">Wordpress/Woocommerce theme with Tailwindcss</h1>
+<?php get_footer(); ?>

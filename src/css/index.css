@@ -3,6 +3,6 @@
 @tailwind utilities;
 
 body {
-    @apply bg-red-200;
+    @apply bg-red-400;
     @apply text-black;
 }
